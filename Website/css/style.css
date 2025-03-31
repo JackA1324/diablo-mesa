@@ -1,0 +1,397 @@
+/* I used chat gpt to allow me to utilize different sizing strategies such as "vh" and "vw". It helped me by teacing me how to utilize view point units so that my flex boxes function more fluidly */
+/* I also used chat gpt to teach me some super nuanced rules that werent taught in any classes. The ones I ended up using were ! important, for overriding specific styles, and translatex()/translatey() so that I can move elements along horizontal and vertical planes */
+
+/*body sections (this includes body, header and h1 elements*/
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.header {
+    background-color: #244025; 
+    color: white;
+    position: fixed; /*stays at the top (sticky)*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /*set heigh*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background-image: url('../img/nationalguard.png'); /*PNG as background on top left*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 15 20px;
+}
+
+h1 {    
+    font-family: "Jersey 20", sans-serif;
+    position: absolute;
+    top: 30vh;
+    font-size: 4vw;
+    font-weight: bold;
+    text-align: center;
+    width: 60vw;
+    margin: 0;
+}
+h2 {
+    text-align: center;
+    font-size: 6vw;
+    margin-top: 100px; 
+    width: 100%;
+    position: relative;
+    z-index: 10; /*ensures it stays above other elements*/
+}
+
+/*all header elements (changed varying on which page)
+Im sure there was a better way to adjust the titles but i used this method because they got stuck under the navigation bar*/
+.learn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1600px; 
+}
+.Practice-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2800px; 
+    
+}
+.Redacted-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1400px; 
+}
+.AL-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 300px; 
+}
+/*end*/
+
+
+
+/*all navigation elements*/
+.nav-links {
+    display: flex;
+    gap: 30px; /*increased spacing for better readability*/
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /*allows responsiveness*/
+    width: 40%; 
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.nav-links a:hover {    
+    color: #39FF14;
+}
+
+/*push content down so it doesn’t get covered by the fixed header */
+.content {
+    margin-top: 100px;
+    padding: 10px;
+}
+
+/*all custom navigation elements/settings for the index.html*/
+.navigation {
+    position: absolute;
+    left: 6vw;  
+    top: 60%;
+    transform: translateY(-50%);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.navigation h2 {
+    margin: 0;
+    font-size: 5.3vw;
+}
+.navigation ul {
+    list-style-type: square;
+    padding-left: 5vw;
+    margin-top: 3vh;
+}
+.navigation a {
+    font-size: 3vw;
+    color: white;  /*added to keep text white */
+    text-decoration: none;  /*helps remove underline */
+}
+.navigation a:hover {
+    color: #39FF14; 
+}
+
+/*this is a little messy but i needed to keep it so that the list squares stayed the same size*/
+.navigation li {
+    font-size: 3vw; 
+    transition: color 0.5s ease;
+}
+.navigation li:hover {
+    color: #39FF14;
+}
+/*end*/
+
+
+
+/*functions that allow for tight and clean UI in the index.html*/
+.center {
+    position: absolute;
+    top: -25vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw !important; /*increase size (as stated above I used chat gpt to help understand the !important function)*/
+    height: auto !important; /*keep aspect ratio*/
+    max-width: 1000px !important; /*ensures it doesn’t grow too large*/
+}
+.logo {
+    position: absolute;
+    width: 13vw;
+    height: auto;
+}
+.top-left {
+    top: 2vh;
+    left: 2vw;
+}
+.top-leftbar {
+    top: 0vh;
+    left: 0vw;
+}
+.top-right {
+    top: 2vh;
+    right: 2vw;
+}
+
+
+/*container for learn.html*/
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /*space between image and text*/
+    max-width: 80vw; /*keeps it responsive*/
+    margin: 50px auto; /*centers it*/
+}
+
+.content-container img {
+    max-width: 40%;
+    height: auto;
+}
+
+.content-container p {
+    max-width: 50%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.text-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /*space between the two paragraphs*/
+    max-width: 80vw; /*keeps content responsive*/
+    margin: 20px auto; /*centers the text block*/
+}
+
+.text-container p {
+    max-width: 40%; /*ensures each paragraph takes half the width*/
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: left;
+}
+/*end*/
+
+
+/*anomoly settings (used for entity and anomoly images)*/
+.anomaly-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /*space between the anomalies*/
+    max-width: 90vw; /*keeps it responsive*/
+    margin: 50px auto; /*centers the section*/
+}
+
+.anomaly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 30%; /* allows ach block to take up equal space*/
+}
+
+.anomaly img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /*adds rounded corners*/
+}
+
+.anomaly h3 {
+    font-size: 2vw;
+    margin: 10px 0;
+}
+
+.anomaly p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+
+
+/*password CSS*/
+.code-entry {
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    font-family: "Pixelify Sans", sans-serif; 
+    font-size: 1.5rem; 
+}
+
+.code-entry p {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.code-entry input {
+    width: 10%;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: "Pixelify Sans", sans-serif; 
+}
+
+.code-entry button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Pixelify Sans", sans-serif; 
+}
+
+.code-entry button:hover {
+    background-color: #39FF14;
+    color: black;
+}
+
+#error-message {
+    font-size: 1.2rem;
+    font-family: "Pixelify Sans", sans-serif;
+}
+/*end*/
+
+/*these are the arrow drop down menu settings that are used for the homescreen*/
+.arrow {
+    width: 40vw;
+    height: auto;
+}
+.arrow-container {
+    position: absolute;
+    left: 70%;
+    top: 30%;
+    transform: translateX(-50%);
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    gap: -30px;
+}
+
+#infoText {
+    font-size: 1.2rem;
+    color: white;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    display: none;
+}
+/*end*/
+
+
+
+/*clickgame*/
+/*I had chat gpt help me with the ratio inputs as well as hhiding the ratio inputs. this allowed me to have a sequence of images be checked off one by one as the user clicks on each overlayed box*/
+/* Hide the radio inputs */
+input[type="radio"] {
+    display: none;
+  }
+  
+  /*container for the game*/
+  .game-container {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+  }
+  
+  /*makes it so all of my game images are hidden by default*/
+  .game-image {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /*(chatgpt as stated above) uses adjacent sibling selector to show the image following the checked radio button */
+  #step1:checked + .img1,
+  #step2:checked + .img2,
+  #step3:checked + .img3 {
+    opacity: 1;
+    position: relative;
+  }
+  
+  /*clickable box styling */
+  .click-box {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  /*this is so i can position the clickable boxes over each entity*/
+  .box1 { 
+    top: 45%; 
+    left: 35%;
+  }
+  
+  .box2 { 
+    top: 30%; 
+    left: 40%;
+  }
+  .box3 { 
+    top: 60%; 
+    left: 55%;
+  }
+/*end*/
+
+  
